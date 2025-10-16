@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目经历 - 吴文豪</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://kimi-web-img.moonshot.cn/img/img.freepik.com/5508c5874c62a7e5eb11094d8cc969a5bb361bd9.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid #f8fafc;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #e2e8f0;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.125rem;
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-blue-600">吴文豪</div>
+                <div class="flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">首页</a>
+                    <a href="#projects" class="text-blue-600 font-medium">项目</a>
+                    <a href="awards.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">奖项</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">联系</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="hero-bg pt-24 pb-16">
+        <div class="hero-content max-w-6xl mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold mb-4 text-gray-900">项目经历</h1>
+            <p class="text-xl text-gray-600">探索我的技术项目与实践经验</p>
+        </div>
+    </section>
+
+    <!-- 项目时间线 -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="space-y-12">
+                <!-- 项目1: RISC-V SoC芯片研究 -->
+                <div id="riscv" class="animate-fade-in card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="timeline-item">
+                                    <span class="text-blue-600 text-sm font-medium bg-blue-100 px-3 py-1 rounded-full">2024.03 - 至今</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 text-gray-900">基于RISC-V的处理器芯片研究</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                作为校内科研项目，设计并开发基于自研RISC-V架构CPU的SoC系统。项目集成了TPU运算单元，
+                                支持Linux系统启动及图像处理功能。担任外设组组长，负责协调团队完成整体SoC的外设部分编写与调试。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">主要职责：</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                                        <span>负责AXI4总线、SPI、UART、SDRAM控制器的Verilog代码编写与仿真</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                                        <span>完成各外设的FPGA上板功能验证与调试</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                                        <span>协调外设组成员工作，确保项目进度</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                                        <span>整体SoC的FPGA原型验证</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术细节：</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        该项目采用模块化设计方法，将复杂的SoC系统分解为多个功能模块。在FPGA原型验证阶段，
+                                        重点解决了时序收敛和资源优化问题。通过AXI4总线实现了高性能的数据传输，
+                                        同时优化了存储器访问效率。项目预计2025年底投厂流片，采用tsmc 28nm工艺。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术栈：</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">Verilog HDL</span>
+                                    <span class="tech-badge">RISC-V</span>
+                                    <span class="tech-badge">AXI4总线</span>
+                                    <span class="tech-badge">FPGA验证</span>
+                                    <span class="tech-badge">Linux</span>
+                                    <span class="tech-badge">TPU</span>
+                                    <span class="tech-badge">设备树</span>
+                                    <span class="tech-badge">交叉编译</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="achievement-card">
+                                <i class="fas fa-microchip text-blue-600 text-4xl mb-4"></i>
+                                <h4 class="text-lg font-semibold mb-2 text-gray-900">项目状态</h4>
+                                <p class="text-gray-600 mb-4">进行中</p>
+                                <div class="mb-4">
+                                    <div class="bg-gray-200 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">完成度 75%</p>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <p>预计2025年底投厂流片</p>
+                                    <p>tsmc 28nm工艺</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目2: FPGA原型验证实习 -->
+                <div class="animate-fade-in card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="timeline-item">
+                                    <span class="text-green-600 text-sm font-medium bg-green-100 px-3 py-1 rounded-full">2024.07 - 2025.04</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 text-gray-900">深圳理工大学算力微电子学院 - FPGA原型验证</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                参与多核RISC-V SoC芯片"MEISHAV100"流片项目的FPGA原型验证工作。该项目旨在构建一款具备4核64位
+                                RISC-V处理器及丰富外设的可运行Linux的SoC芯片，已完成umc 40nm工艺流片。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">主要成果：</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                                        <span>在Xilinx VC707平台上采用Block Design方法构建FPGA原型系统</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                                        <span>协同完成UART、QSPI、SD卡、JTAG、chiplink、DDR等核心外设功能验证</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                                        <span>使用UVM验证平台和Modelsim执行超过100个测试用例</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                                        <span>编写20余页全英文验证文档，支撑项目顺利进入流片阶段</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术挑战与解决方案：</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                                        <strong>挑战：</strong>多核处理器系统的复杂验证环境搭建，需要确保各个核之间的协同工作和数据一致性。
+                                    </p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        <strong>解决方案：</strong>采用分层验证策略，先验证单个核的功能，再进行多核协同验证。通过UVM验证平台构建了可重用的验证环境，提高了验证效率和覆盖率。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术栈：</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">Xilinx VC707</span>
+                                    <span class="tech-badge">UVM验证</span>
+                                    <span class="tech-badge">Modelsim</span>
+                                    <span class="tech-badge">Block Design</span>
+                                    <span class="tech-badge">Linux</span>
+                                    <span class="tech-badge">设备树</span>
+                                    <span class="tech-badge">SD卡镜像</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/SUAT-lhy/MEISHAV100---FPGA-verifaction-on-VC707" 
+                                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    <i class="fab fa-github mr-2"></i>
+                                    项目链接
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="achievement-card">
+                                <i class="fas fa-check-circle text-green-600 text-4xl mb-4"></i>
+                                <h4 class="text-lg font-semibold mb-2 text-gray-900">项目状态</h4>
+                                <p class="text-gray-600 mb-4">已完成</p>
+                                <div class="mb-4">
+                                    <div class="bg-gray-200 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">完成度 100%</p>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <p>umc 40nm工艺流片</p>
+                                    <p>已完成流片</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目3: 智能巡检机器人 -->
+                <div id="robot" class="animate-fade-in card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="timeline-item">
+                                    <span class="text-purple-600 text-sm font-medium bg-purple-100 px-3 py-1 rounded-full">2025.01 - 2025.07</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 text-gray-900">全国大学生集成电路创新创业大赛 - 智能巡检机器人</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                基于紫光PG2L50H FPGA开发多模态智能巡检机器人，采用硬件并行架构实现PWM运动控制、舵机PID运算，
+                                集成YOLOv8目标识别和手势交互功能，实现巡逻车和机械臂的协同控制。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">项目特色：</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-robot text-blue-600 mt-1 mr-3"></i>
+                                        <span>硬件并行架构实现PWM运动控制和舵机PID运算</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-eye text-green-600 mt-1 mr-3"></i>
+                                        <span>集成YOLOv8目标识别算法，实现实时目标检测</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-wifi text-purple-600 mt-1 mr-3"></i>
+                                        <span>支持WIFI通信和软件上位机控制</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-hand-paper text-orange-600 mt-1 mr-3"></i>
+                                        <span>实现巡逻车和机械臂的协同控制</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术实现细节：</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                                        <strong>神经网络加速：</strong>在FPGA上部署YOLOv8轻量级模型，通过量化压缩和硬件并行化，
+                                        实现了实时的目标检测功能，检测精度达到85%以上。
+                                    </p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        <strong>控制系统：</strong>采用分布式控制架构，FPGA负责底层运动控制，STM32负责传感器数据采集，
+                                        通过CAN总线实现高速通信，确保系统的实时性和稳定性。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术栈：</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">紫光FPGA</span>
+                                    <span class="tech-badge">YOLOv8</span>
+                                    <span class="tech-badge">PWM控制</span>
+                                    <span class="tech-badge">手势识别</span>
+                                    <span class="tech-badge">WIFI通信</span>
+                                    <span class="tech-badge">PID控制</span>
+                                    <span class="tech-badge">CAN总线</span>
+                                    <span class="tech-badge">STM32</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-sm text-gray-500">
+                                <p class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full inline-block">
+                                    获得华南赛区二等奖
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="achievement-card">
+                                <i class="fas fa-robot text-green-600 text-4xl mb-4"></i>
+                                <h4 class="text-lg font-semibold mb-2 text-gray-900">竞赛成果</h4>
+                                <p class="text-gray-600 mb-4">华南赛区二等奖</p>
+                                <div class="mb-4">
+                                    <div class="bg-gray-200 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">完成度 100%</p>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <p>紫光同创杯</p>
+                                    <p>华南赛区</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目4: FPGA游戏平台 -->
+                <div id="game" class="animate-fade-in card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="timeline-item">
+                                    <span class="text-orange-600 text-sm font-medium bg-orange-100 px-3 py-1 rounded-full">2024.09 - 2024.12</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 text-gray-900">全国大学生FPGA创新设计赛道 - 高云半导体赛道</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                基于VexRiscv CPU设计并实现SoC应用平台，集成UART、IIC、SPI等多个外设，支持Linux系统启动并稳定运行程序，
+                                同时支持智能AI五子棋、谷歌小恐龙游戏、血氧检测以及蓝牙连接功能。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">项目亮点：</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-microchip text-blue-600 mt-1 mr-3"></i>
+                                        <span>在高云Tang Mega 138K Pro开发板上部署四核处理器系统</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-memory text-green-600 mt-1 mr-3"></i>
+                                        <span>使用SPI访问SD卡，实现bootloader将程序加载到SDRAM</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-gamepad text-purple-600 mt-1 mr-3"></i>
+                                        <span>集成智能AI五子棋、谷歌小恐龙等应用程序</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-heartbeat text-red-600 mt-1 mr-3"></i>
+                                        <span>支持血氧检测和蓝牙连接功能</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">创新技术：</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                                        <strong>多核系统：</strong>成功在高云FPGA上部署了四核VexRiscv处理器系统，
+                                        通过合理的缓存一致性和中断管理，实现了稳定的多核Linux系统运行。
+                                    </p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        <strong>应用集成：</strong>开发了多个实用应用程序，包括基于Minimax算法的AI五子棋、
+                                        Chrome小恐龙游戏移植、血氧检测算法等，展示了系统的多样化应用能力。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术栈：</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">VexRiscv</span>
+                                    <span class="tech-badge">高云FPGA</span>
+                                    <span class="tech-badge">Linux</span>
+                                    <span class="tech-badge">AI算法</span>
+                                    <span class="tech-badge">蓝牙</span>
+                                    <span class="tech-badge">SPI</span>
+                                    <span class="tech-badge">IIC</span>
+                                    <span class="tech-badge">UART</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://www.bilibili.com/video/BV1DniqYDEoe" 
+                                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    作品视频
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="achievement-card">
+                                <i class="fas fa-gamepad text-purple-600 text-4xl mb-4"></i>
+                                <h4 class="text-lg font-semibold mb-2 text-gray-900">竞赛成果</h4>
+                                <p class="text-gray-600 mb-4">全国二等奖</p>
+                                <div class="mb-4">
+                                    <div class="bg-gray-200 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">完成度 100%</p>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <p>高云半导体赛道</p>
+                                    <p>全国总决赛</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目5: 轻量低功耗神经网络目标检测加速器 -->
+                <div class="animate-fade-in card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="timeline-item">
+                                    <span class="text-indigo-600 text-sm font-medium bg-indigo-100 px-3 py-1 rounded-full">2023.03 - 2023.07</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 text-gray-900">基于YOLOv4Tiny的轻量低功耗神经网络目标检测加速器</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                本项目通过设计基于YOLOv4Tiny的加速器，力求实现高效的目标检测，提高系统的实时性能。
+                                通过优化硬件设计和算法实现，基于YOLOv4Tiny的加速器可以在保持高性能的同时降低功耗，
+                                延长设备的续航时间。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">主要技术创新：</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-cogs text-blue-600 mt-1 mr-3"></i>
+                                        <span>自定义IP核：通过HLS创建自定义卷积神经网络IP核</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-layer-group text-green-600 mt-1 mr-3"></i>
+                                        <span>循环分块处理：有效解决FPGA片上存储资源有限的问题</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-exchange-alt text-purple-600 mt-1 mr-3"></i>
+                                        <span>乒乓操作加速：通过乒乓操作加速数据流处理，掩盖数据传输时间</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-stream text-orange-600 mt-1 mr-3"></i>
+                                        <span>流水线设计：系统分割组合逻辑，提高处理效率</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">优化策略：</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                                        <strong>卷积与BatchNorm融合：</strong>通过融合批量归一化层，进一步提高模型的推理速度和效率，
+                                        减少了内存访问次数和计算复杂度。
+                                    </p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        <strong>定点数量化：</strong>将32位浮点数量化为16位定点数，在保证检测精度的前提下，
+                                        显著降低了硬件资源占用和功耗。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">应用领域：</h4>
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <i class="fas fa-shield-alt text-blue-600 mb-2"></i>
+                                        <p class="font-medium text-blue-800">智能监控安防</p>
+                                        <p class="text-blue-600">实时监测异常行为</p>
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded-lg">
+                                        <i class="fas fa-car text-green-600 mb-2"></i>
+                                        <p class="font-medium text-green-800">自动驾驶</p>
+                                        <p class="text-green-600">实时检测道路目标</p>
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded-lg">
+                                        <i class="fas fa-traffic-light text-purple-600 mb-2"></i>
+                                        <p class="font-medium text-purple-800">智能交通</p>
+                                        <p class="text-purple-600">交通流量监测</p>
+                                    </div>
+                                    <div class="bg-orange-50 p-3 rounded-lg">
+                                        <i class="fas fa-heartbeat text-orange-600 mb-2"></i>
+                                        <p class="font-medium text-orange-800">医疗图像</p>
+                                        <p class="text-orange-600">病理图辅助识别</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3 text-gray-900">技术栈：</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">YOLOv4Tiny</span>
+                                    <span class="tech-badge">HLS</span>
+                                    <span class="tech-badge">Vivado</span>
+                                    <span class="tech-badge">FPGA</span>
+                                    <span class="tech-badge">CNN加速</span>
+                                    <span class="tech-badge">定点量化</span>
+                                </div>
+                            </div>
+
+                            <div class="flex space-x-4">
+                                <a href="https://mp.weixin.qq.com/s/kBhD2bBlwAuA7c7dzHa_KQ" 
+                                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    <i class="fab fa-github mr-2"></i>
+                                    公众号推文
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="achievement-card">
+                                <i class="fas fa-brain text-indigo-600 text-4xl mb-4"></i>
+                                <h4 class="text-lg font-semibold mb-2 text-gray-900">项目成果</h4>
+                                <p class="text-gray-600 mb-4">技术文档完成</p>
+                                <div class="mb-4">
+                                    <div class="bg-gray-200 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-3 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">完成度 100%</p>
+                                </div>
+                                <div class="text-xs text-gray-500">
+                                    <p>创新设计竞赛</p>
+                                    <p>技术文档5.0版本</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-500">© 2025 吴文豪. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

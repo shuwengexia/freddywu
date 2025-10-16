@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奖项荣誉 - 吴文豪</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://kimi-web-img.moonshot.cn/img/img.freepik.com/5508c5874c62a7e5eb11094d8cc969a5bb361bd9.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .award-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .award-national {
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .award-regional {
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .award-school {
+            border-left: 4px solid #10b981;
+        }
+        
+        .medal-gold { color: #f59e0b; }
+        .medal-silver { color: #6b7280; }
+        .medal-bronze { color: #92400e; }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-blue-600">吴文豪</div>
+                <div class="flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">首页</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">项目</a>
+                    <a href="#awards" class="text-blue-600 font-medium">奖项</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">联系</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="hero-bg pt-24 pb-16">
+        <div class="hero-content max-w-6xl mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold mb-4 text-gray-900">奖项荣誉</h1>
+            <p class="text-xl text-gray-600">我的竞赛经历与获奖情况</p>
+        </div>
+    </section>
+
+    <!-- 统计概览 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="stats-card animate-fade-in">
+                    <div class="text-4xl font-bold mb-2" id="national-count">0</div>
+                    <div class="text-blue-100">国家级奖项</div>
+                    <i class="fas fa-trophy text-3xl mt-4 opacity-80"></i>
+                </div>
+                <div class="stats-card animate-fade-in" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <div class="text-4xl font-bold mb-2" id="regional-count">0</div>
+                    <div class="text-green-100">省级奖项</div>
+                    <i class="fas fa-award text-3xl mt-4 opacity-80"></i>
+                </div>
+                <div class="stats-card animate-fade-in" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                    <div class="text-4xl font-bold mb-2" id="school-count">0</div>
+                    <div class="text-yellow-100">校级奖项</div>
+                    <i class="fas fa-star text-3xl mt-4 opacity-80"></i>
+                </div>
+                <div class="stats-card animate-fade-in" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                    <div class="text-4xl font-bold mb-2" id="total-count">0</div>
+                    <div class="text-purple-100">总获奖数</div>
+                    <i class="fas fa-medal text-3xl mt-4 opacity-80"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 奖项详情 -->
+    <section id="awards" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- 国家级奖项 -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in text-gray-900">
+                    <i class="fas fa-trophy medal-gold mr-3"></i>
+                    国家级奖项
+                </h2>
+                <div class="space-y-6">
+                    <div class="animate-fade-in award-card award-national">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-silver text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">全国大学生嵌入式芯片与系统设计竞赛</h3>
+                                        <p class="text-gray-600">FPGA创新设计赛道二等奖（高云半导体赛道）</p>
+                                        <p class="text-sm text-gray-500 mt-1">2024年 • 全国二等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        基于VexRiscv CPU设计并实现SoC应用平台，集成UART、IIC、SPI等多个外设，
+                                        支持Linux系统启动并稳定运行程序，同时支持智能AI五子棋、谷歌小恐龙游戏、
+                                        血氧检测以及蓝牙连接功能。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-national">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">全国大学生嵌入式芯片与系统设计竞赛</h3>
+                                        <p class="text-gray-600">FPGA创新设计赛道三等奖（AMD赛道）</p>
+                                        <p class="text-sm text-gray-500 mt-1">2023年 • 全国三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        参与了基于AMD FPGA平台的创新设计，展示了在FPGA开发方面的技术能力和创新思维。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-national">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-silver text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">"华数杯"全国大学生数学建模竞赛</h3>
+                                        <p class="text-gray-600">本科组二等奖</p>
+                                        <p class="text-sm text-gray-500 mt-1">2023年 • 全国二等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        在数学建模竞赛中展现了数据分析和问题解决能力，通过建立数学模型解决实际问题，
+                                        体现了跨学科的综合能力。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-national">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">RoboMaster机甲大师高校Sim2Real挑战赛</h3>
+                                        <p class="text-gray-600">挑战赛三等奖</p>
+                                        <p class="text-sm text-gray-500 mt-1">2023年 • 全国三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        参与了机甲大师挑战赛，在仿真到现实的迁移学习中展现了算法设计和实现能力，
+                                        为机器人控制算法的实际应用积累了宝贵经验。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 省级奖项 -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in text-gray-900">
+                    <i class="fas fa-award text-blue-600 mr-3"></i>
+                    省级奖项
+                </h2>
+                <div class="space-y-6">
+                    <div class="animate-fade-in award-card award-regional">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-silver text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">全国大学生集成电路创新创业大赛</h3>
+                                        <p class="text-gray-600">华南赛区二等奖（紫光同创杯）</p>
+                                        <p class="text-sm text-gray-500 mt-1">2025年 • 华南赛区二等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        基于紫光PG2L50H FPGA开发多模态智能巡检机器人，集成YOLOv8目标识别和手势交互功能，
+                                        采用硬件并行架构实现PWM运动控制和舵机PID运算。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-regional">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">全国大学生集成电路创新创业大赛</h3>
+                                        <p class="text-gray-600">华南赛区三等奖（安谋科技杯）</p>
+                                        <p class="text-sm text-gray-500 mt-1">2024年 • 华南赛区三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        基于Arm Cortex-M0的视频处理系统设计，成功在EG4S20开发板上搭建出具备UART、SPI、HDMI以及SDRAM控制器等外设的SoC系统。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-regional">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">"高教社杯"全国大学生数学建模竞赛</h3>
+                                        <p class="text-gray-600">广东赛区三等奖</p>
+                                        <p class="text-sm text-gray-500 mt-1">2023年 • 省三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        在数学建模竞赛中，将抽象问题转化为可计算的数学模型，成功破解现实难题，彰显了融合多学科知识的综合素养。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
+            <!-- 校级奖项 -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in text-gray-900">
+                    <i class="fas fa-star text-green-600 mr-3"></i>
+                    校级奖项
+                </h2>
+                <div class="space-y-6">
+                    <div class="animate-fade-in award-card award-school">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-silver text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">深圳技术大学"研究与创新"奖学金</h3>
+                                        <p class="text-gray-600">先进个人奖学金</p>
+                                        <p class="text-sm text-gray-500 mt-1">2024年 • 校级二等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        在科研创新方面表现突出，积极参与科研项目和技术创新，展现了良好的研究潜力。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in award-card award-school">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">深圳技术大学"工匠之星"奖学金</h3>
+                                        <p class="text-gray-600">先进个人奖学金</p>
+                                        <p class="text-sm text-gray-500 mt-1">2024年 • 校级三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        展现了扎实的专业基础和实践能力，体现了工匠精神和技术追求。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in award-card award-school">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-medal medal-bronze text-3xl mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-900">深圳技术大学"研究与创新"奖学金</h3>
+                                        <p class="text-gray-600">先进个人奖学金</p>
+                                        <p class="text-sm text-gray-500 mt-1">2024年 • 校级三等奖</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        在各类竞赛中展现了优秀的个人素质与团队领导力，体现了对技术精益求精的追求。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 证书展示 -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-fade-in text-gray-900">相关证书</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="animate-fade-in award-card text-center">
+                        <i class="fas fa-certificate text-yellow-500 text-5xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-900">CET-4 四级证书</h3>
+                        <p class="text-gray-600 text-sm">英语四级证书</p>
+                    </div>
+                    
+                    <div class="animate-fade-in award-card text-center">
+                        <i class="fas fa-microchip text-blue-500 text-5xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-900">鸿蒙高级培训证书</h3>
+                        <p class="text-gray-600 text-sm">华为鸿蒙南向开发</p>
+                    </div>
+                    
+                    <div class="animate-fade-in award-card text-center">
+                        <i class="fas fa-users text-green-500 text-5xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-900">创芯社聘书</h3>
+                        <p class="text-gray-600 text-sm">技术部部长聘书</p>
+                    </div>
+                    
+                    <div class="animate-fade-in award-card text-center">
+                        <i class="fas fa-graduation-cap text-purple-500 text-5xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-900">中国芯训练营</h3>
+                        <p class="text-gray-600 text-sm">结营证书</p>
+                    </div>
+                    
+                    <div class="animate-fade-in award-card text-center">
+                        <i class="fas fa-robot text-orange-500 text-5xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-900">Robomaster参赛证明</h3>
+                        <p class="text-gray-600 text-sm">机甲大师竞赛</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-500">© 2025 吴文豪. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 数字动画
+        function animateNumbers() {
+            const numbers = [
+                { element: document.getElementById('national-count'), target: 4 },
+                { element: document.getElementById('regional-count'), target: 3 },
+                { element: document.getElementById('school-count'), target: 3 },
+                { element: document.getElementById('total-count'), target: 10 }
+            ];
+
+            numbers.forEach(num => {
+                if (num.element) {
+                    let current = 0;
+                    const increment = num.target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num.target) {
+                            num.element.textContent = num.target;
+                            clearInterval(timer);
+                        } else {
+                            num.element.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // 当统计区域进入视口时开始数字动画
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.grid.md\\:grid-cols-4');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
